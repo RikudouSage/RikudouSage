@@ -1,4 +1,4 @@
-diff --git a/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json b/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
+diff --git a/files/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json b/files/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
 index c578a51..af527e6 100644
 --- a/files/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
 +++ b/files/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
