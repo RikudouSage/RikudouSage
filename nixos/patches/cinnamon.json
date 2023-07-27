@@ -1,0 +1,13 @@
+diff --git a/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json b/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
+index c578a51..af527e6 100644
+--- a/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
++++ b/usr/share/cinnamon/applets/grouped-window-list@cinnamon.org/settings-schema.json
+@@ -96,7 +96,7 @@
+   },
+   "title-display": {
+     "type": "combobox",
+-    "default": 1,
++    "default": 3,
+     "description": "Button label",
+     "options": {
+       "None": 1,
