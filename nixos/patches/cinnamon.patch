@@ -11,3 +11,24 @@ index c578a51..af527e6 100644
      "description": "Button label",
      "options": {
        "None": 1,
+
+diff --git a/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json b/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json
+index 799b814..718ea71 100644
+--- a/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json
++++ b/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json
+@@ -17,13 +17,13 @@
+     },
+     "use-custom-format" : {
+         "type" : "switch",
+-        "default" : false,
++        "default" : true,
+         "description": "Use a custom date format",
+         "tooltip": "Check this to define a custom format for the date in the calendar applet."
+     },
+     "custom-format" : {
+         "type" : "entry",
+-        "default" : "%A, %B %e, %H:%M",
++        "default" : "%A, %B %e, %H:%M:%S",
+         "description" : "Date format",
+         "dependency" : "use-custom-format",
+         "tooltip" : "Set your custom format here."
