@@ -28,7 +28,7 @@ index 799b814..718ea71 100644
      "custom-format" : {
          "type" : "entry",
 -        "default" : "%A, %B %e, %H:%M",
-+        "default" : "%A, %B %e, %H:%M:%S",
++        "default" : "%A %d.%m.%Y %H:%M:%S",
          "description" : "Date format",
          "dependency" : "use-custom-format",
          "tooltip" : "Set your custom format here."
