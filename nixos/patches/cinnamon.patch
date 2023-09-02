@@ -33,6 +33,8 @@ index 799b814..718ea71 100644
          "dependency" : "use-custom-format",
          "tooltip" : "Set your custom format here."
 
+diff --git a/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json b/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json
+index 799b814..5ffbc2e 100644
 --- a/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json
 +++ b/files/usr/share/cinnamon/applets/calendar@cinnamon.org/settings-schema.json
 @@ -17,13 +17,13 @@
