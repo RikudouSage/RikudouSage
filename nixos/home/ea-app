@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Configuration options
+export DATA_DIR="$HOME/Games/EADesktop"
+export VKD3D_VERSION="2.9"
+
+# Wine prefix
+export WINEPREFIX="$DATA_DIR/prefix"
+export EA_APP_DIR="$WINEPREFIX/drive_c/Program Files/Electronic Arts/EA Desktop/EA Desktop/"
+
+# Don't make probably-broken desktop entries
+export WINEDLLOVERRIDES="winemenubuilder.exe=d"
+
+if [[ -n ${1+x} ]] && [[ "$1" == "init-wine" ]]; then
+    mkdir -p "$DATA_DIR"
+    pushd "$DATA_DIR"
+
+    wineboot --init
+    wineserver --wait
+
+    winetricks -q dxvk
+    wineserver --wait
+
+    curl -LO "https://github.com/HansKristian-Work/vkd3d-proton/releases/download/v$VKD3D_VERSION/vkd3d-proton-$VKD3D_VERSION.tar.zst"
+    tar --zstd -xvf "vkd3d-proton-$VKD3D_VERSION.tar.zst"
+    "./vkd3d-proton-$VKD3D_VERSION/setup_vkd3d_proton.sh" install
+
+    touch init-ok
+
+    popd
+elif [[ -n ${1+x} ]] && [[ "$1" == "init-ea-app" ]]; then
+    pushd "$DATA_DIR"
+
+    curl -O "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAappInstaller.exe"
+    wine64 EAappInstaller.exe
+
+    popd
+elif [[ -n ${1+x} && "$1" == "--" ]]; then
+    shift
+    "$@"
+elif [[ -f "$DATA_DIR/init-ok" && "$(basename "$0")" == "ea-app" ]]; then
+    env -C "$EA_APP_DIR" \
+        wine64 EADesktop.exe
+else
+    echo "If this is your first time, do things in this order:"
+    echo
+    echo "1. ea-app init-wine"
+    echo "2. ea-app init-ea-app"
+    echo "  1. Install the EA App to the default location"
+    echo
+    echo "After this, start \`ea-app\`"
+fi
